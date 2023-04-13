@@ -38,7 +38,7 @@ public class CustomArraySorting {
      * @param arr принимаемая коллекция
      * @param begin индекс первого элемента подмассива
      * @param end индекс последнего элемента подмассива
-     * @return индекс последнего элемента который равен pivot
+     * @return граница по которой нужно делить массив
      * @param <T> тип коллекции
      */
     private static <T extends Comparable<? super T>> int divide(Array<T> arr, int begin, int end){
@@ -77,7 +77,7 @@ public class CustomArraySorting {
     /**
      * Метод рекурсивно вызывающий сам себя для разбиения на подмассивы для последующей сортирровки
      * @param arr передаваемая коллекция
-     * @param begin индекс первого элемента подмассива
+     * @param begin индекс первого элемента подмассивара
      * @param end индекс последнего элемента подмассива
      * @param c компаратор (правило по которому будет сортироваться коллекция)
      * @param <T> тип коллекции
@@ -97,7 +97,7 @@ public class CustomArraySorting {
      * @param begin индекс первого элемента подмассива
      * @param end индекс последнего элемента подмассива
      * @param c компаратор (правило по которому будет сортироваться коллекция)
-     * @return индекс последнего элемента который равен pivot
+     * @return граница по которой нужно делить массив
      * @param <T> тип коллекции
      */
     private static <T> int divide(Array<T> arr, int begin, int end,Comparator<T> c){
