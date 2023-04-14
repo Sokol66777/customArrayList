@@ -16,7 +16,7 @@ public class CustomArray <T> implements Array<T>{
     /**
      * Конструктор без параметров создающий массив дженерик типа
      */
-    CustomArray(){
+    public CustomArray(){
         this.values=(T[]) new Object[0];
     }
 
@@ -26,13 +26,10 @@ public class CustomArray <T> implements Array<T>{
      */
     @Override
     public void add(T t) {
-
-
         T[] temp = this.values;
         this.values = (T[]) new Object[temp.length+1];
         System.arraycopy(temp,0,this.values,0,temp.length);
         this.values[this.values.length-1] = t;
-
     }
 
     /**
@@ -51,7 +48,6 @@ public class CustomArray <T> implements Array<T>{
      */
     @Override
     public void delete(int index) {
-
         T[] temp = this.values;
         this.values = (T[]) new Object[temp.length-1];
         System.arraycopy(temp,0,values,0,index);
@@ -77,7 +73,6 @@ public class CustomArray <T> implements Array<T>{
     public int size() {
         return this.values.length;
     }
-
 
     /**
      * Этот метод используется для инициализации итератора и последующего его использования

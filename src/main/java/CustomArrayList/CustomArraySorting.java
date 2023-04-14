@@ -8,13 +8,20 @@ import java.util.Comparator;
 public class CustomArraySorting {
 
     /**
-     *
      * @param arr коллекция передаваемая в этот метод для сортировки
      * @param <T> тип коллекции
      */
     public static <T extends Comparable<? super T>> void sort(Array<T> arr){
-
         quickSort(arr,0, arr.size()-1);
+    }
+
+    /**
+     * @param arr коллекция передаваемая в этот метод для сортировки
+     * @param c компаратор (условие как будет сортироваться коллекция)
+     * @param <T> тип коллекции
+     */
+    public static <T> void sort(Array<T> arr, Comparator<T> c) {
+        quickSort(arr,0, arr.size()-1,c);
     }
 
     /**
@@ -25,7 +32,6 @@ public class CustomArraySorting {
      * @param <T> тип элементов в коллекции
      */
     private static <T extends Comparable<? super T>> void quickSort(Array<T> arr, int begin, int end){
-
         if(begin<end){
             int divideIndex = divide(arr,begin,end);
             quickSort(arr,begin,divideIndex-1);
@@ -42,9 +48,9 @@ public class CustomArraySorting {
      * @param <T> тип коллекции
      */
     private static <T extends Comparable<? super T>> int divide(Array<T> arr, int begin, int end){
-
         T pivot = arr.get(begin);
         while (begin<=end){
+
             while (arr.get(begin).compareTo(pivot)<0){
                 begin++;
             }
@@ -52,6 +58,7 @@ public class CustomArraySorting {
             while (arr.get(end).compareTo(pivot)>0){
                 end--;
             }
+
             if(begin<=end){
                 T temp = arr.get(begin);
                 arr.update(begin, arr.get(end));
@@ -64,17 +71,6 @@ public class CustomArraySorting {
     }
 
     /**
-     *
-     * @param arr коллекция передаваемая в этот метод для сортировки
-     * @param c компаратор (условие как будет сортироваться коллекция)
-     * @param <T> тип коллекции
-     */
-    public static <T> void sort(Array<T> arr, Comparator<T> c) {
-
-        quickSort(arr,0, arr.size()-1,c);
-    }
-
-    /**
      * Метод рекурсивно вызывающий сам себя для разбиения на подмассивы для последующей сортирровки
      * @param arr передаваемая коллекция
      * @param begin индекс первого элемента подмассивара
@@ -83,7 +79,6 @@ public class CustomArraySorting {
      * @param <T> тип коллекции
      */
     private static <T > void quickSort(Array<T> arr, int begin, int end,Comparator<T> c){
-
         if(begin<end){
             int divideIndex = divide(arr,begin,end,c);
             quickSort(arr,begin,divideIndex-1,c);
@@ -101,15 +96,17 @@ public class CustomArraySorting {
      * @param <T> тип коллекции
      */
     private static <T> int divide(Array<T> arr, int begin, int end,Comparator<T> c){
-
         T pivot = arr.get(begin);
         while (begin<=end){
+
             while (c.compare(arr.get(begin),pivot)<0){
                 begin++;
             }
+
             while (c.compare(arr.get(end),pivot )>0){
                 end--;
             }
+
             if(begin<=end){
                 T temp = arr.get(begin);
                 arr.update(begin, arr.get(end));

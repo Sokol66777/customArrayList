@@ -6,8 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CustomArrayTest {
 
     @Test
-    public void deleteElement(){
-
+    public void testDeleteElement(){
         Array<String> strs = new CustomArray<>();
         strs.add("str1");
         strs.add("str2");
@@ -18,34 +17,33 @@ public class CustomArrayTest {
     }
 
     @Test
-    public void addElement(){
-
+    public void testAddElement(){
         Array<String> strs = new CustomArray<>();
         strs.add("str2");
+
         String result = "str2";
 
         assertEquals(result,strs.get(0));
     }
 
     @Test
-    public void updateElement(){
-
+    public void testUpdateElement(){
         Array<String> strs = new CustomArray<>();
-
         strs.add("str2");
         strs.update(0,"update");
+
         String result = "update";
 
         assertEquals(result,strs.get(0));
     }
 
     @Test
-    public void size(){
+    public void testSize(){
         Array<String> strs = new CustomArray<>();
-
         strs.add("str1");
         strs.add("str2");
         strs.add("str3");
+
         int result = 3;
 
         assertEquals(result,strs.size());

@@ -3,8 +3,7 @@ package CustomArrayList;
 import java.util.List;
 
 /**
- * Интерфейс кастомной коллекции с ее функциями
- *
+ * @see CustomArray
  */
 public interface Array<T> extends Iterable<T>  {
 

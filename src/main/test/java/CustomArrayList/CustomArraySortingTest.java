@@ -6,8 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 public class CustomArraySortingTest {
 
     @Test
-    public void qSortWithoutCompartor(){
-
+    public void TestQuickSortWithoutComparator(){
         Array<Integer> integers = new CustomArray<>();
         integers.add(7);
         integers.add(3);
